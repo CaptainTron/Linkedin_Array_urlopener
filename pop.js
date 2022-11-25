@@ -1,26 +1,22 @@
 const btn  =  document.getElementById('here');
 btn.addEventListener('click',function(){
-    let url = document.getElementById('inputhere').value;
-    if(url==""){
+    let urls = document.getElementById('inputhere').value;
+    if(urls===""){
         alert("Nothing to Open !!");
         return;
     }
-    const arrays = JSON.parse("[" + url + "]");
+    const arrays = JSON.parse(urls);
     alert(arrays);
-    // let arrays = ["https://google.com","https://google.com","https://google.com"];
     openlinks(arrays);
 });
-
 function openlinks(name){
         let i = name.length;
         for(let k = 0;k<i;k++){
-            if(name[k].includes("https://www.linkedin.com/*")){
-                setTimeout(function(){
-                    chrome.tabs.create({url : name[k]});
-                },1000)
+            if(name[k].includes("linkedin.com")){
+                chrome.tabs.create({url : name[k]});
             }
             else{
-                alert("Wrong Url Has been Provided")
+                alert("Array Contain Wrong Links")
                 console.log("Url is not correct");
                 return;
             }
@@ -30,11 +26,3 @@ function openlinks(name){
 
 
 
-
-
-// async function getCurrentTab() {
-//         let queryOptions = { active: true, lastFocusedWindow: true };
-//         let [tab]  = await chrome.tabs.query(queryOptions);
-//         document.getElementById('demo').innerHTML = tab.title;
-//         return tab;
-// }

@@ -12,6 +12,12 @@
         "48" : "Images/48.png",
         "128" : "Images/128.png"
       }
-    }
+    },
+    "content_scripts":[
+      {
+        "matches":["https://*.linkedin.com/*"],
+        "js":["contentscripts.js"]
+      }
+    ]
   } 
     
