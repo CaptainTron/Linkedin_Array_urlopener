@@ -4,9 +4,9 @@
         <style>
             body{
                 width: 300px;
-                background-color: lightblue;
+                background-color: rgb(27, 28, 29);
                 border-radius: 3px;
-                
+                color: wheat;
             }
             button{
                 background-color: yellow;
@@ -14,12 +14,27 @@
                 cursor: pointer;
                 padding: 6px;
                 border-radius: 4px;
+            }
+            button:hover{
+                background-color: blue;
+                color: wheat;
+            }
+            input{
+                height: 20px;
+                margin: 10px;
+                border: none;
+                border-radius: 5px;
+            }
+            input:focus[type="text"]{
+                outline: none;
             } 
         </style>
     </head>
 <body>
     <div style="text-align: center;">
-        <button id="here">Click Here</button>
+        <p style="font-size: 20px;font-weight: bolder;margin: 0px;">Enter Your Linkedin Url here : </p>
+        <input type="text" id="inputhere"><br>
+        <button id="here">Open</button>
     </div>
     <h2 id="demo" style="color: blue; text-align: center;"></h2>
     <script src="pop.js"></script>    
