@@ -1,23 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <style>
             body{
                 width: 300px;
                 background-color: rgb(27, 28, 29);
                 border-radius: 3px;
+                font-family: sans-serif;
                 color: wheat;
             }
             button{
-                background-color: yellow;
+                background-color: rgb(24, 24, 20);
                 border: none;
                 cursor: pointer;
                 padding: 6px;
                 border-radius: 4px;
+                margin: 6px;
+                color: yellow;
+                box-shadow: 0 0 5px wheat;
             }
             button:hover{
-                background-color: blue;
+                background-color: rgb(56, 53, 45);
                 color: wheat;
+                box-shadow: 0 0 5px yellow,0 0 10px yellow;
             }
             input{
                 width: 300px;
@@ -29,14 +35,32 @@
             input:focus[type="text"]{
                 outline: none;
             }
+            .hidden{
+                display: none;
+            }
+            .next{
+                text-align: center;
+                margin: 4px;
+            }
 
         </style>
     </head>
 <body>
-    <div style="text-align: center;">
-        <p style="font-size: 20px;font-weight: bolder;margin: 0px;">Enter Your Linkedin URL here : </p>
-        <input type="text" id="inputhere"><br>
-        <button id="here">Open</button>
+    <div style="text-align: center;" class="datainput">
+        <p style="font-size: 20px;font-weight: bolder;margin: 0px;"> <i class="fa-brands fa-linkedin"></i> </p>
+        <input type="text" id="inputhere" placeholder="Enter Your Array of Linkedin Links Here..."><br>
+        <button id="here"> <i class="fa fa-book-open"></i> </button>
+    </div>
+    <div class="dataoutput hidden">
+        <div class="next">
+            <button class="backbtn"> <i class="fa fa-chevron-left"></i> </button>
+            <button class="nextbtn"> <i class="fa fa-chevron-right"></i></button>
+        </div><br>
+        <h2 style="margin-top: 0px;margin-bottom: 0px;" class="nameinfo">Name here</h2>
+        <hr>
+        <div class="details">
+        </div>
+
     </div>
     <h2 id="demo" style="color: blue; text-align: center;"></h2>
     <script src="pop.js"></script>    
