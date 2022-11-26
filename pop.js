@@ -60,6 +60,11 @@ function openlinks(links) {
         chrome.tabs.update(tab.id, {url: links});
     });
     };
+    chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
+        document.querySelector('.nameinfo').innerHTML = message.data; 
+        document.getElementById('mail').innerHTML = `<i class="fa fa-envelope"></i>  ` + message.mailinfo; 
+        console.log(message);
+    });
     // let nameinfo = document.getElementById("app-container").querySelector('section').querySelector('.member-description').querySelector('.member-name').querySelector('span').innerText;
     // console.log(nameinfo);
 

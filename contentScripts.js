@@ -1,5 +1,10 @@
 (()  => {
-        console.log("This is from Contentscrits.js file and its good");
-        let nameinfo = document.getElementById("app-container").querySelector('section').querySelector('.member-description').querySelector('.member-name').querySelector('span').innerText;
-        console.log(nameinfo);
+
+                let nameinfo = document.getElementById("app-container").querySelector('section .member-description .member-name span').innerText;
+                let mailinfo = document.getElementById("app-container").querySelector('.profile-overview-container .contacts-container ul li div a') .innerText;
+                console.log(nameinfo);
+                console.log(mailinfo);
+                chrome.runtime.sendMessage({
+                        data: nameinfo,mailinfo
+                    });
 })();
