@@ -13,11 +13,12 @@
         "128" : "Images/128.png"
       }
     },
-    "content_scripts":[
+    "content_scripts": [
       {
-        "matches":["https://*.linkedin.com/*"],
-        "js":["contentscripts.js"]
+        "matches":["https://www.linkedin.com/*"],
+        "js":["contentScripts.js"]
       }
     ]
+
   } 
     

@@ -15,26 +15,18 @@ btn.addEventListener('click',function(){
     const arrays = JSON.parse(urls);
     datainput.classList.add('hidden');
     dataoutput.classList.remove('hidden');
-
-
-    // detail.innerHTML = `${arrays[0]}`
     opendetails(arrays);
-    // chrome.tabs.create({active:true},{url : "https://google.com"});
 });
 function opendetails(profileinfo){
     let urldetails;
     let i = profileinfo.length,k=0;
-    detail.innerHTML = `${profileinfo[k].replace("https://www.","")}`
+    detail.innerHTML = `<p><i class="fa fa-link"></i>  ${profileinfo[k].replace("https://www.","")}</p>`
     openlinks(`${profileinfo[k]}`);
     nextbtn.addEventListener('click',function(){
         if(k<i){
-            // urldetails=profileinfo[++k];
             ++k;
             openlinks(`${profileinfo[k]}`);
-            alert(profileinfo[k])
-            // urldetails = profileinfo[k].replace("https://www.","");
-            detail.innerHTML = `${profileinfo[k].replace("https://www.","")} ${i} ${k}`;
-            // name.innerHTML = `${urldetails.replace("linkedin.com/in/","")}`
+            detail.innerHTML = `<p><i class="fa fa-link"></i>  ${profileinfo[k].replace("https://www.","")}</p>`;
             if(k>0){
                 backbtn.classList.remove('hidden');
             }
@@ -49,7 +41,7 @@ function opendetails(profileinfo){
         if(k>0){
             --k;
             openlinks(`${profileinfo[k]}`);
-            detail.innerHTML = `${profileinfo[k].replace("https://www.","")} ${i} ${k}`;
+            detail.innerHTML = `<p><i class="fa fa-link"></i> ${profileinfo[k].replace("https://www.","")}</p>`;
             if(k<i){
                 nextbtn.classList.remove('hidden')
             }
@@ -68,7 +60,8 @@ function openlinks(links) {
         chrome.tabs.update(tab.id, {url: links});
     });
     };
-
+    // let nameinfo = document.getElementById("app-container").querySelector('section').querySelector('.member-description').querySelector('.member-name').querySelector('span').innerText;
+    // console.log(nameinfo);
 
 
 
