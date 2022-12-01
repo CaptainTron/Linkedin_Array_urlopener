@@ -23,15 +23,6 @@ go.addEventListener('click',function(){
                 chrome.tabs.update(tab.id, {url: 'https://www.linkedin.com/feed/'});
 })
 })
-
-// // this function will open the links background of pop and open links one by one
-// function openlinks(links) {
-//     chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-//         var tab = tabs[0]; 
-//         // this will open the tabs here;
-//         chrome.tabs.update(tab.id, {url: links});
-//     });
-//     };
 //     // This will fetch the data from the content_scripts file and display it here
 //     chrome.runtime.onMessage.addListener(function (message) {
 //         // getting data from the contentScript.js and putting it on popup.html
