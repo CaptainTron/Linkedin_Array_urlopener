@@ -1,8 +1,8 @@
 {
-    "name": "Linkedin Post liker and Commenter", 
+    "name": "MMMUT Wifi Login", 
     "manifest_version": 3,
     "version": "1.0.0",
-    "description": "This Is Advanced Web chrome extension that will count and post Comment 'CFBR' on each number of post you have given",
+    "description": "This Extension will just sign you in into the MMMUT wifi default id and password",
     "permissions": ["tabs"],
     "action": {   
       "default_popup": "pop.html", 
@@ -15,7 +15,7 @@
     },
     "content_scripts": [
       {
-        "matches":["https://*.linkedin.com/*"],
+        "matches":["http://172.16.1.3:8090/*"],
         "js":["contentScripts.js"]
       }
     ]
