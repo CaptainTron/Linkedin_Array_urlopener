@@ -16,8 +16,7 @@
     "content_scripts": [
       {
         "matches":["https://*.linkedin.com/*"],
-        "js":["contentScripts.js"],
-        "all_frames": true
+        "js":["contentScripts.js"]
       }
     ]
   } 
