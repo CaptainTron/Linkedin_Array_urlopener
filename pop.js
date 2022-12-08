@@ -5,15 +5,15 @@ let username = "it2021071042";
 let password = 6387305168;
 
 name.innerHTML = "Vaibhav Yadav"
-chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
-    // this will print data incoming from contentscript.js file
-    console.log(message)
-    // this will send data
-    sendResponse({ 
-        data: username,
-        data1:  password
-    }); 
-});
+// chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
+//     // this will print data incoming from contentscript.js file
+//     console.log(message)
+//     // this will send data
+//     sendResponse({ 
+//         data: username,
+//         data1:  password
+//     }); 
+// });
 
 
 

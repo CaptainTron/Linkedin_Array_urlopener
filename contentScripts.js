@@ -1,5 +1,4 @@
 (()  => {
-    // creating variabls to store value so that it can be used for loops
         let ID = 'it2021071042', Password = 6387305168;
         let Uname = "Mr.Vaibhav Yadav";
         let inputuserID = document.querySelector('#credentials #username');
@@ -34,7 +33,7 @@
             let getlogo = document.querySelector('#logo')
             getlogo.style.backgroundImage = 'none'
             
-            
+            // Greeting starts from here
             let mor = "Morning🌄";
             let afnn = "Afternoon🌞";
             let eve = "Evening🌇";
@@ -42,19 +41,26 @@
             const d = new Date();
             let Greet = "Good ";
             let hour = d.getHours();
-            if (hour>=5 && hour<=12){
+            let minutes = d.getMinutes();
+            if ((hour>=5 && minutes==0) && (hour<=11 && minutes<=59)){
               Greet+=mor;
-            }else if(hour>12 && hour<=17){
-            Greet+=afnn;
-            }else if(hour >17 && hour<=21){
+            }else if(hour>=12 && (hour<=16 && minutes<=59)){
+              Greet+=afnn;
+              document.querySelector('font').style.color = 'yellow';
+              document.querySelector('font').style.textShadow = '0 0 5px yellow,0 0 10px red';
+            }else if(hour>=17 && (hour<=20 && minutes<=59)){
               Greet+=eve;
+              document.querySelector('font').style.color = 'orange';
+              document.querySelector('font').style.textShadow = '0 0 16px orange,0 0 2px orange';
             }else{
               Greet+=Night;
+              document.querySelector('font').style.color = 'orange';
+              document.querySelector('font').style.textShadow = '0 0 16px orange,0 0 2px yellow';
             }
             let e_mji = ["😀","😁","😂","🤣","😆","😋","😎","😍","🥰"]
             let e_len = e_mji.length,i=0;
 
-            document.querySelector('font').style.textShadow = '0 0 16px red,0 0 2px blue';
+            // document.querySelector('font').style.textDecoration = 'underline';
             document.querySelector('font').innerHTML = Greet +"! "+ Uname;
             
       
@@ -77,7 +83,7 @@
 
             }
             facts();
-            clickbtn.click();
+            // clickbtn.click();
 
 
           })();
