@@ -4,6 +4,7 @@
         let inputuserID = document.querySelector('#credentials #username');
         let inputpassword = document.querySelector('#credentials #password');
         let clickbtn = document.querySelector('.buttonrow a');
+        let specialgreet="";
         // receiveing message and sending message form pop.js file
         // chrome.runtime.sendMessage({
         //     data: "Data Fectched Successfully"
@@ -37,37 +38,34 @@
             let mor = "Morning🌄";
             let afnn = "Afternoon🌞";
             let eve = "Evening🌇";
-            let Night = "Night🌙";
+            let Night = "Night🌔";
             const d = new Date();
             let Greet = "Good ";
             let hour = d.getHours();
             let minutes = d.getMinutes();
-            if ((hour>=5 && minutes==0) && (hour<=11 && minutes<=59)){
+            if ((hour>=5) && (hour<=11 && minutes<=59)){
               Greet+=mor;
+              specialgreet = `<br> "Great Way To Go!"`;
+              document.querySelector('font').style.color = 'green';
+              document.querySelector('font').style.textShadow = '0 0 2px green,0 0 2px yellow';
             }else if(hour>=12 && (hour<=16 && minutes<=59)){
               Greet+=afnn;
               document.querySelector('font').style.color = 'yellow';
               document.querySelector('font').style.textShadow = '0 0 5px yellow,0 0 10px red';
-            }else if(hour>=17 && (hour<=20 && minutes<=59)){
+            }else if(hour>=17 && (hour<=19 && minutes<=59)){
               Greet+=eve;
               document.querySelector('font').style.color = 'orange';
               document.querySelector('font').style.textShadow = '0 0 16px orange,0 0 2px orange';
             }else{
               Greet+=Night;
+              specialgreet = `<br> "Time To Recharge Yourself Champ!"`
               document.querySelector('font').style.color = 'orange';
               document.querySelector('font').style.textShadow = '0 0 16px orange,0 0 2px yellow';
             }
-            let e_mji = ["😀","😁","😂","🤣","😆","😋","😎","😍","🥰"]
-            let e_len = e_mji.length,i=0;
-
             // document.querySelector('font').style.textDecoration = 'underline';
-            document.querySelector('font').innerHTML = Greet +"! "+ Uname;
+            document.querySelector('font').innerHTML = Greet +"! "+ Uname + specialgreet;
             
-      
-
-
-
-
+            // This will make promise and fetch data from the server and select randomly text from the data that we will get from
             let facts = () => {
             fetch("https://type.fit/api/quotes")
             .then((data) => data.json())
