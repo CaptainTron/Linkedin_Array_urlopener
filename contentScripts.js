@@ -7,14 +7,9 @@
         let clickbtn = document.querySelector('.buttonrow a');
         let specialgreet="";
         // receiveing message and sending message form pop.js file
-        // chrome.runtime.sendMessage({
-        //     data: "Data Fectched Successfully"
-        //      }, function (response) {
-        //       console.log(response);
-        //     //   parsing data to int so that it can be used as nummbers
-        //       ID = response.data;
-        //       Password = parseInt(response.data1)
-            //   console loggint the data to browser page that si linkedin page
+        //   parsing data to int so that it can be used as nummbers
+        
+
               console.log(ID);
               console.log(Password);
             inputuserID.value = ID;
@@ -40,8 +35,8 @@
             let afnn = "Afternoon🌞";
             let eve = "Evening🌇";
             let Night = "Night🌔";
+            let Greet="Good ";
             const d = new Date();
-            let Greet = "Good ";
             let hour = d.getHours();
             let minutes = d.getMinutes();
             if ((hour>=5) && (hour<=11 && minutes<=59)){
@@ -54,11 +49,10 @@
               document.querySelector('font').style.color = 'yellow';
               document.querySelector('font').style.textShadow = '0 0 5px yellow,0 0 10px red';
             }else if(hour>=17 && (hour<=19 && minutes<=59)){
-            if (hour>=5 && hour<=12){
               Greet+=mor;
-            }else if(hour>12 && hour<=17){
+            }else if(hour>=12 && (hour<=16 && minutes<=59)){
             Greet+=afnn;
-            }else if(hour >17 && hour<=21){
+            }else if(hour>=17 && (hour<=20 && minutes <=59)){
               Greet+=eve;
             }else{
               Greet+=Night;
@@ -67,13 +61,8 @@
               document.querySelector('font').style.textShadow = '0 0 16px orange,0 0 2px yellow';
             }
             // document.querySelector('font').style.textDecoration = 'underline';
+          
             document.querySelector('font').innerHTML = Greet +"! "+ Uname + specialgreet;
-            }
-            let e_mji = ["😀","😁","😂","🤣","😆","😋","😎","😍","🥰"]
-            let e_len = e_mji.length,i=0;
-
-            document.querySelector('font').style.textShadow = '0 0 16px red,0 0 2px blue';
-            document.querySelector('font').innerHTML = Greet +"! "+ Uname;
             
             // This will make promise and fetch data from the server and select randomly text from the data that we will get from
             let facts = () => {
@@ -91,7 +80,12 @@
 
             }
             facts();
-            clickbtn.click();
 
+              chrome.runtime.sendMessage({
+                  data: "This one from Contentscript"
+                   }, function (response) {
+                    console.log(response);
+                    // clickbtn.click();
+                   });
 
           })();
