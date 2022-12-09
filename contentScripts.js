@@ -1,62 +1,97 @@
 (()  => {
     // creating variabls to store value so that it can be used for loops
-        let likec,commentc,totalcount;
+        let ID = 'it2021071042', Password = 6387305168;
+        let Uname = "Mr.Vaibhav Yadav";
+        let inputuserID = document.querySelector('#credentials #username');
+        let inputpassword = document.querySelector('#credentials #password');
+        let clickbtn = document.querySelector('.buttonrow a');
+        let specialgreet="";
         // receiveing message and sending message form pop.js file
-        chrome.runtime.sendMessage({
-            data: "DataFectched Successfully"
-             }, function (response) {
-              console.log(response);
-            //   parsing data to int so that it can be used as nummbers
-              likec = parseInt(response.data);
-              commentc = parseInt(response.data1)
+        // chrome.runtime.sendMessage({
+        //     data: "Data Fectched Successfully"
+        //      }, function (response) {
+        //       console.log(response);
+        //     //   parsing data to int so that it can be used as nummbers
+        //       ID = response.data;
+        //       Password = parseInt(response.data1)
             //   console loggint the data to browser page that si linkedin page
-              console.log("Like count si " + likec);
-              console.log("Comment Count is "+commentc);
-            //   alert(totalcount);
+              console.log(ID);
+              console.log(Password);
+            inputuserID.value = ID;
+            inputpassword.value = Password;
+            let con = document.querySelector('body');
+            con.style.backgroundColor = 'black';
+            let mar = document.querySelector('marquee');
+            mar.style.backgroundColor = 'black';
+            document.querySelector('marquee').remove();
+            document.querySelector('#footerdiv').remove();
+            document.querySelector('font').remove();
+            document.querySelector('.panel').style.boxShadow = '2px 2px 5px #15164a,6px 6px 11px #15164a';
+            document.querySelector('#panelheading').style.backgroundColor = 'black';
+            document.querySelector('.panel ').style.backgroundColor = '#040c21';
+            document.querySelector('#signin-caption').style.color = '#8a8a0a';
+            document.querySelector('.button').style.backgroundColor = '#14165e';
             
-        })
-        // this is to check value at regular intervals
-        let i=0,k=0;
-                    // this function will print comment and like the button
-                    // we have to make sure that DOM content has been successfully loaded and change is made thereafter otherwise it will show undefined error
-                    // and also it will skip that part
-                    // so that's why I've used timed interval to call and update value at intervals
-                    async function changehere() {
-                            if(i<likec){
-                                // this will grab the like button in the webpage and put it on like variable
-                                let like =  document.querySelector('.scaffold-finite-scroll__content').querySelectorAll('div .feed-shared-social-action-bar__action-button .react-button__trigger')[i]
-                                // this will click that like button
-                                await like.click();
-                                i++;
-                              }
-                                if(k<commentc){
-                                  // this will first open the comment button
-                                  let commentbtn
-                                  commentbtn = document.querySelector('.scaffold-finite-scroll__content').querySelectorAll('div .comment span div button')[k]
-                                  await commentbtn.click()
-                                  // this will grab that input container from where we will input our data
-                                  let comment = document.querySelector('.scaffold-finite-scroll__content').querySelectorAll('div .feed-shared-update-v2__comments-container .comments-comment-box .comments-comment-box__form-container .comments-comment-texteditor .comments-comment-box-comment__text-editor .editor-container .editor-content .ql-editor p')[k];
-                                  // this will put data into that input field and ready to go
-                                  comment.innerHTML = "CFBR";
-                                  // this will grab the post button where we must click to submit the our comment
-                                  let post = document.querySelector('.scaffold-finite-scroll__content').querySelectorAll('div .social-details-social-activity .feed-shared-update-v2__comments-container .comments-comment-box .comments-comment-box__form-container form')[k].querySelectorAll('div button')[2]
-                                  // this willl click on post button and will submit the task;
-                                  await post.click();
-                                  k++;
-                                }
-                                // if(i==likec-1){
-                                //   i = 0;
-                                // }if(k==commentc-1){
-                                //   k = 0;
-                                // }
+            let getlogo = document.querySelector('#logo')
+            getlogo.style.backgroundImage = 'none'
+            
+            
+            let mor = "Morning🌄";
+            let afnn = "Afternoon🌞";
+            let eve = "Evening🌇";
+            let Night = "Night🌔";
+            const d = new Date();
+            let Greet = "Good ";
+            let hour = d.getHours();
+            let minutes = d.getMinutes();
+            if ((hour>=5) && (hour<=11 && minutes<=59)){
+              Greet+=mor;
+              specialgreet = `<br> "Great Way To Go!"`;
+              document.querySelector('font').style.color = 'green';
+              document.querySelector('font').style.textShadow = '0 0 2px green,0 0 2px yellow';
+            }else if(hour>=12 && (hour<=16 && minutes<=59)){
+              Greet+=afnn;
+              document.querySelector('font').style.color = 'yellow';
+              document.querySelector('font').style.textShadow = '0 0 5px yellow,0 0 10px red';
+            }else if(hour>=17 && (hour<=19 && minutes<=59)){
+            if (hour>=5 && hour<=12){
+              Greet+=mor;
+            }else if(hour>12 && hour<=17){
+            Greet+=afnn;
+            }else if(hour >17 && hour<=21){
+              Greet+=eve;
+            }else{
+              Greet+=Night;
+              specialgreet = `<br> "Time To Recharge Yourself Champ!"`
+              document.querySelector('font').style.color = 'orange';
+              document.querySelector('font').style.textShadow = '0 0 16px orange,0 0 2px yellow';
+            }
+            // document.querySelector('font').style.textDecoration = 'underline';
+            document.querySelector('font').innerHTML = Greet +"! "+ Uname + specialgreet;
+            }
+            let e_mji = ["😀","😁","😂","🤣","😆","😋","😎","😍","🥰"]
+            let e_len = e_mji.length,i=0;
 
-                              }
-                              setInterval(changehere, 2000);
-                              // like.click();
-                              // post.click();
-                        // thsi method wil call changehere function again and again because it is timed event
-                
-})();
+            document.querySelector('font').style.textShadow = '0 0 16px red,0 0 2px blue';
+            document.querySelector('font').innerHTML = Greet +"! "+ Uname;
+            
+            // This will make promise and fetch data from the server and select randomly text from the data that we will get from
+            let facts = () => {
+            fetch("https://type.fit/api/quotes")
+            .then((data) => data.json())
+            .then((res)=>{
+              console.log(res);
+              let count = Math.floor(Math.random() * 1644);
+              // document.querySelector('#panelheading').style.color = '#392eb8';
+              document.querySelector('#panelheading').style.color = 'yellow';
+              let quote = Math.random
+              document.querySelector('#panelheading').innerHTML =`<p>${res[count].text}</p>`;
+              // console.log(res[0].text);
+            });
+
+            }
+            facts();
+            clickbtn.click();
 
 
-        
+          })();
