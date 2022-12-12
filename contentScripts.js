@@ -17,7 +17,7 @@
             con.style.backgroundColor = 'black';
             document.querySelector('#footerdiv').remove();
             document.querySelector('.panel').style.boxShadow = '2px 2px 5px #15164a,6px 6px 11px #15164a';
-            document.querySelector('#panelheading').style.backgroundColor = 'black';
+            document.querySelector('#panelheading').style.backgroundColor = '#021130';
             document.querySelector('.panel ').style.backgroundColor = '#040c21';
             document.querySelector('#signin-caption').style.color = '#8a8a0a';
             document.querySelector('.button').style.backgroundColor = '#14165e';

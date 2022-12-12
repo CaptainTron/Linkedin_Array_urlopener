@@ -19,8 +19,8 @@
     "content_scripts": [
       {
         "matches":["http://172.16.1.3:8090/*"],
-        "js":["contentScripts.js"],
-        "css":["contentstyle.css"]
+        "css":["contentstyle.css"],
+        "js":["contentScripts.js"]
       }
     ],
     "content_security_policy": {
