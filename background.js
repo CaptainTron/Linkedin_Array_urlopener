@@ -7,13 +7,15 @@ chrome.runtime.onStartup.addListener(function(){
   //   chrome.tabs.update({ url: 'http://172.16.1.3:8090' });
   // }, 3000);
   // This tab will check for removed tab, rest will taken care by function
-  chrome.tabs.onRemoved.addListener(startMMMUTlogin);
-  // This function will check wheather there is any tab open or not if not it will open it else it will ignore it
-  function startMMMUTlogin(){
-    let value = 1;
-    sendmsg();
-    // This will query out through each tab on every single opened window of your chrome browser
-    chrome.tabs.query({}, function(tabs) {
+  // chrome.tabs.onUpdated.addListener(function(){
+    // });
+    chrome.tabs.onRemoved.addListener(startMMMUTlogin);
+    // This function will check wheather there is any tab open or not if not it will open it else it will ignore it
+    function startMMMUTlogin(){
+      let value = 1;
+      sendmsg();
+      // This will query out through each tab on every single opened window of your chrome browser
+      chrome.tabs.query({}, function(tabs) {
         tabs.forEach(function (tab) {
           // console.log(tab.id);
           if(tab.url.includes("http://172.16.1.3:8090") ){
@@ -50,12 +52,12 @@ setInterval(() => {
   });
 }, 40000);
 
-// chrome.tabs.query({}, function(tabs) {
-//   tabs.forEach(function (tab) {
-//     chrome.scripting.executeScript(
-//       {
-//         target: {tabId: tab.id},
-//         files: ['script.js'],
-//       });
-//   });
-// });
+  chrome.tabs.onUpdated.addListener(function(){
+    chrome.tabs.query({}, function(tabs) {
+      tabs.forEach(function (tab) {
+        if(tab.url =="https://www.google.com/"){
+          chrome.tabs.update(tab.id,{ url: 'chrome://newtab' });
+        }
+      });
+    });
+    });
