@@ -1,3 +1,6 @@
-#panelheading{
-    background-color: blue;
+.panel .panel-body{
+    color: yellow;
+}
+.display{
+    display: none;
 }

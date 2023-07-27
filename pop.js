@@ -1,9 +1,9 @@
-let name = document.querySelector('.logindetails')
+let naam = document.querySelector('.logindetails')
 
 let username = "it2021071042";
 let password = 6387305168;
-let status = `  [ Active ]`;
-name.innerHTML = "Vaibhav Yadav" + status;
+let statu = `  [ Active ]`;
+naam.innerHTML = "Vaibhav Yadav" + statu;
 // chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
 //     // this will print data incoming from contentscript.js file
 //     console.log(message)
@@ -13,16 +13,6 @@ name.innerHTML = "Vaibhav Yadav" + status;
 //         data1:  password
 //     }); 
 // });
-
-
-
-
-
-
-
-
-
-
 
 
 // // this method will open the linkedin feed in the background of page and passs the data of Like count and comment count to contentscript.js using internal messaging system

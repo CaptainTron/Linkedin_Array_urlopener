@@ -3,7 +3,7 @@
     "manifest_version": 3,
     "version": "1.0.0",
     "description": "This Extension will sign you in into the MMMUT wifi",
-    "permissions": ["tabs","scripting"],
+    "permissions": ["tabs","bookmarks"],
     "action": {   
       "default_popup": "pop.html", 
       "default_icon": {
@@ -19,8 +19,15 @@
     "content_scripts": [
       {
         "matches":["http://172.16.1.3:8090/*"],
+        "resources": ["/Images/Space_Images.png","/Images/*"],
         "css":["contentstyle.css"],
         "js":["contentScripts.js"]
+      }
+    ],
+    "web_accessible_resources": [
+      {
+        "resources": ["/Images/*"],
+        "matches":["http://172.16.1.3:8090/*"]
       }
     ],
     "content_security_policy": {
